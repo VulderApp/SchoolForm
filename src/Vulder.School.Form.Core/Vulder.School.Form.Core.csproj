@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.4" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Vulder.SharedKernel" Version="0.1.6" />
+  </ItemGroup>
+
 </Project>
