@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mz-covid-bot-db:/data/db
+      - vulder-school-form-db:/data/db
   mongo-express:
     image: mongo-express:0.54.0
     restart: always
