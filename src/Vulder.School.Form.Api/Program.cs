@@ -1,9 +1,16 @@
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Vulder.School.Form.Api;
+using Vulder.School.Form.Application;
 using Vulder.School.Form.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new DefaultInfrastructureModule());
+    containerBuilder.RegisterModule(new DefaultApplicationModule());
+}));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -12,7 +19,6 @@ builder.Services.AddValidators();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

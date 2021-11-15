@@ -1,15 +1,16 @@
 using MongoDB.Driver;
+using Vulder.School.Form.Core.Configuration;
 
 namespace Vulder.School.Form.Infrastructure.Database;
 
 public class MongoDbContext
 {
-    public IMongoCollection<Core.ProjectAggregate.Form.Form> Forms { get; set; }
-
-    public MongoDbContext(string connectionString)
+    public MongoDbContext()
     {
-        var client = new MongoClient(connectionString);
+        var client = new MongoClient(Constants.MongoDbConnectionString);
         var database = client.GetDatabase("Vulder");
-        database.GetCollection<Core.ProjectAggregate.Form.Form>("Forms");
+        Forms = database.GetCollection<Core.ProjectAggregate.Form.Form>("Forms");
     }
+
+    public IMongoCollection<Core.ProjectAggregate.Form.Form>? Forms { get; set; }
 }
