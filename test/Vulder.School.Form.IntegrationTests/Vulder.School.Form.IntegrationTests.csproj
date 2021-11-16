@@ -24,10 +24,4 @@
       <ProjectReference Include="..\..\src\Vulder.School.Form.Api\Vulder.School.Form.Api.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Update="appsettings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
 </Project>
