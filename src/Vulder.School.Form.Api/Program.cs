@@ -1,15 +1,23 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Vulder.School.Form.Application;
+using Vulder.School.Form.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new DefaultInfrastructureModule());
+    containerBuilder.RegisterModule(new DefaultApplicationModule());
+}));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddValidators();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,3 +31,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }
