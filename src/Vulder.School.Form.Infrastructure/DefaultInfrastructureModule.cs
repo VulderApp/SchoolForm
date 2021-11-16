@@ -12,7 +12,7 @@ public class DefaultInfrastructureModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder.Register(_ => new MapperConfiguration(c => { c.AddProfile<AutoMapperProfile>(); }));
-        
+
         builder.Register(c =>
             {
                 var context = c.Resolve<IComponentContext>();

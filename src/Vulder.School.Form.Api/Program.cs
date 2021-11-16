@@ -1,6 +1,5 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Vulder.School.Form.Api;
 using Vulder.School.Form.Application;
 using Vulder.School.Form.Infrastructure;
 
@@ -32,3 +31,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

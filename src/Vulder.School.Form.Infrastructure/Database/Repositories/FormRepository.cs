@@ -14,7 +14,7 @@ public class FormRepository : IFormRepository
 
     public async Task<Core.ProjectAggregate.Form.Form> Create(Core.ProjectAggregate.Form.Form form)
     {
-        await Forms.InsertOneAsync(form);
+        await Forms!.InsertOneAsync(form);
 
         return form;
     }

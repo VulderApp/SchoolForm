@@ -9,20 +9,20 @@ namespace Vulder.School.Form.Application;
 
 public class DefaultApplicationModule : Module
 {
-    private readonly List<Assembly?> _assemblies = new ();
+    private readonly List<Assembly?> _assemblies = new();
 
     public DefaultApplicationModule()
     {
         _assemblies.Add(Assembly.GetAssembly(typeof(Core.ProjectAggregate.Form.Form)));
         _assemblies.Add(Assembly.GetAssembly(typeof(SubmitSchoolFormRequestHandler)));
     }
-    
+
     protected override void Load(ContainerBuilder builder)
     {
         builder.RegisterType<Mediator>()
             .As<IMediator>()
             .InstancePerLifetimeScope();
-        
+
         builder.Register<ServiceFactory>(context =>
         {
             var c = context.Resolve<IComponentContext>();

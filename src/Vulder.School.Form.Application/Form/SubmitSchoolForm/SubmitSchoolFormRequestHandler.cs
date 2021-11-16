@@ -3,8 +3,7 @@ using Vulder.School.Form.Infrastructure.Database.Interfaces;
 
 namespace Vulder.School.Form.Application.Form.SubmitSchoolForm;
 
-public class
-    SubmitSchoolFormRequestHandler : IRequestHandler<Core.ProjectAggregate.Form.Form, Core.ProjectAggregate.Form.Form>
+public class SubmitSchoolFormRequestHandler : IRequestHandler<Core.ProjectAggregate.Form.Form, Core.ProjectAggregate.Form.Form>
 {
     private readonly IFormRepository _formRepository;
 

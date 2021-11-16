@@ -11,7 +11,7 @@ public class SubmitSchoolFormController : ControllerBase
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
-    
+
     public SubmitSchoolFormController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
