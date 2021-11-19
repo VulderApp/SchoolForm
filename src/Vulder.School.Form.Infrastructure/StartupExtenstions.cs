@@ -11,4 +11,16 @@ public static class StartupExtenstions
     {
         services.AddTransient<IValidator<SchoolFormModel>, SchoolFormModelValidator>();
     }
+    
+    public static void AddDefaultCorsPolicy(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CORS", corsPolicyBuilder =>
+            {
+                corsPolicyBuilder.AllowAnyOrigin()
+                    .AllowAnyMethod();
+            });
+        });
+    }
 }

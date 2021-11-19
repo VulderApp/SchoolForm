@@ -7,16 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="6.3.0"/>
-        <PackageReference Include="AutoMapper" Version="10.1.1"/>
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1"/>
-        <PackageReference Include="FluentValidation" Version="10.3.4"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.13.2"/>
-        <PackageReference Include="Vulder.SharedKernel" Version="0.1.6"/>
+        <PackageReference Include="Autofac" Version="6.3.0" />
+        <PackageReference Include="AutoMapper" Version="10.1.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+        <PackageReference Include="FluentValidation" Version="10.3.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
+        <PackageReference Include="Vulder.SharedKernel" Version="0.1.6" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Vulder.School.Form.Core\Vulder.School.Form.Core.csproj"/>
+        <ProjectReference Include="..\Vulder.School.Form.Core\Vulder.School.Form.Core.csproj" />
     </ItemGroup>
 
 </Project>
