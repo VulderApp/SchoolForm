@@ -18,4 +18,14 @@ public class FormRepository : IFormRepository
 
         return form;
     }
+
+    public Task<List<Core.ProjectAggregate.Form.Form>> GetFormList(int page)
+    { 
+        var forms = Forms!.AsQueryable()
+            .OrderByDescending(x => x.CreatedAt)
+            .Skip((page - 1) * 20)
+            .ToList();
+
+        return Task.FromResult(forms);
+    }
 }

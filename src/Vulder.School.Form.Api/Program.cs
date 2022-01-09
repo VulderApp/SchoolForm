@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Vulder.School.Form.Application;
 using Vulder.School.Form.Infrastructure;
+using Vulder.SharedKernel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory(contain
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDefaultJwtConfiguration(builder.Configuration);
 builder.Services.AddSwaggerGen();
 builder.Services.AddValidators();
 builder.Services.AddDefaultCorsPolicy();
@@ -26,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
