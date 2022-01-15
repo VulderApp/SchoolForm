@@ -12,7 +12,7 @@ public class SchoolFormModelValidatorTest
     public void TestSchoolFormModelValidator_AssetsTrue()
     {
         var validator = new SchoolFormModelValidator();
-        
+
         var model = new SchoolFormModel
         {
             Email = "example@example.com",
@@ -20,7 +20,7 @@ public class SchoolFormModelValidatorTest
             SchoolUrl = "https://example.com",
             TimetableUrl = "https://example.com/Timetable"
         };
-        
+
         Assert.True(validator.TestValidate(model).IsValid);
     }
 }

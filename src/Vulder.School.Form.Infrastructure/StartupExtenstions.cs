@@ -10,5 +10,6 @@ public static class StartupExtenstions
     public static void AddValidators(this IServiceCollection services)
     {
         services.AddTransient<IValidator<SchoolFormModel>, SchoolFormModelValidator>();
+        services.AddTransient<IValidator<SchoolFormApproveModel>, SchoolFormApproveModelValidator>();
     }
 }

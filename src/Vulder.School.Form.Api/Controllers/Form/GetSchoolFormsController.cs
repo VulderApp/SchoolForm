@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vulder.School.Form.Core.Models;
 
-namespace Vulder.School.Form.Api.Controllers.Admin;
+namespace Vulder.School.Form.Api.Controllers.Form;
 
 [Authorize]
 [ApiController]
-[Route("/admin/[controller]")]
+[Route("/form/[controller]")]
 public class GetSchoolFormsController : ControllerBase
 {
     private readonly IMediator _mediator;
-    
+
     public GetSchoolFormsController(IMediator mediator)
     {
         _mediator = mediator;
@@ -24,7 +24,7 @@ public class GetSchoolFormsController : ControllerBase
         {
             Page = page
         });
-        
+
         return Ok(result);
     }
 }
