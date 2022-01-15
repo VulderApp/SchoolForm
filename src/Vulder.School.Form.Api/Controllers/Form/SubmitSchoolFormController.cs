@@ -21,10 +21,10 @@ public class SubmitSchoolFormController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> SubmitSchoolForm([FromBody] SchoolFormModel schoolFormModel)
     {
-        await _mediator.Send(
+        var result = await _mediator.Send(
             _mapper.Map<Core.ProjectAggregate.Form.Form>(schoolFormModel)
             );
 
-        return Ok();
+        return Ok(result);
     }
 }
