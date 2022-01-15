@@ -20,7 +20,7 @@ public class SchoolFormApproveModelValidatorTest
 
         Assert.True(validator.TestValidate(model).IsValid);
     }
-    
+
     [Fact]
     public void TestSchoolFormApproveModelValidator_NotValid()
     {
