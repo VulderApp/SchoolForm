@@ -15,7 +15,7 @@ public class SubmitSchoolFormRequestHandler : IRequestHandler<Core.ProjectAggreg
     public async Task<Core.ProjectAggregate.Form.Form> Handle(Core.ProjectAggregate.Form.Form request,
         CancellationToken cancellationToken)
     {
-        await _formRepository.Create(request.CreatePublishTime());
+        await _formRepository.Create(request.GenerateId().CreatePublishTime());
 
         return request;
     }

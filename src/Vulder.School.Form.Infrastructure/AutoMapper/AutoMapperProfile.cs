@@ -7,6 +7,7 @@ public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile()
     {
-        CreateMap<SchoolFormModel, Core.ProjectAggregate.Form.Form>();
+        CreateMap<SchoolFormModel, Core.ProjectAggregate.Form.Form>()
+            .ForMember(dest => dest.RequesterEmail, opt => opt.MapFrom(src => src.Email));
     }
 }

@@ -19,13 +19,23 @@ public class FormRepository : IFormRepository
         return form;
     }
 
+    public async Task<Core.ProjectAggregate.Form.Form> GetById(Guid id)
+    {
+        return await Forms!.Find(x => x.Id == id).FirstAsync();
+    }
+
     public Task<List<Core.ProjectAggregate.Form.Form>> GetFormList(int page)
-    { 
+    {
         var forms = Forms!.AsQueryable()
             .OrderByDescending(x => x.CreatedAt)
             .Skip((page - 1) * 20)
             .ToList();
 
         return Task.FromResult(forms);
+    }
+
+    public async Task Update(Core.ProjectAggregate.Form.Form form)
+    {
+        await Forms!.ReplaceOneAsync(x => x.Id == form.Id, form);
     }
 }

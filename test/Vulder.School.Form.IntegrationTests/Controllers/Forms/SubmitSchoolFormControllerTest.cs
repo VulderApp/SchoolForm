@@ -22,7 +22,7 @@ public class SubmitSchoolFormControllerTest
             SchoolUrl = "https://example.com",
             TimetableUrl = "https://example.com/timetable"
         };
-        
+
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
         var httpContent = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json");

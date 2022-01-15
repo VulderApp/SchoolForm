@@ -13,7 +13,7 @@
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="MediatR" Version="10.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-        <PackageReference Include="Vulder.SharedKernel" Version="0.1.7" />
+        <PackageReference Include="Vulder.SharedKernel" Version="0.1.9" />
     </ItemGroup>
 
     <ItemGroup>

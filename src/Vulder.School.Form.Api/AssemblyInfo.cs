@@ -1,3 +1,3 @@
 using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("Vulder.School.Form.IntegrationTests")]
+[assembly: InternalsVisibleTo("Vulder.School.Form.IntegrationTests")]
