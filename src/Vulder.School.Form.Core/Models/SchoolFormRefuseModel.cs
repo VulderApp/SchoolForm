@@ -1,6 +1,6 @@
 ﻿namespace Vulder.School.Form.Core.Models;
 
-public class SchoolFormRefuseModel
+public class RefuseSchoolFormModel
 {
     public Guid FormId { get; set; }
 }

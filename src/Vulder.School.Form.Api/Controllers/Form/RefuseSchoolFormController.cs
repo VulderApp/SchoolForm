@@ -19,7 +19,7 @@ public class RefuseSchoolFormController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> RefuseForm([FromBody] SchoolFormRefuseModel refuseModel)
+    public async Task<IActionResult> RefuseForm([FromBody] RefuseSchoolFormModel refuseModel)
     {
         await _mediator.Send(new SchoolFormRefuseRequestModel
         {

@@ -9,15 +9,15 @@ using Xunit;
 
 namespace Vulder.School.Form.IntegrationTests.Controllers.Forms;
 
-public class GetSchoolFormsController
+public class RefuseSchoolFormControllerTest
 {
     [Fact]
-    public async Task GET_Responds_200_StatusCode()
+    public async Task PUT_Responds_200_StatusCode()
     {
         var formModel = new SchoolFormModel
         {
             Email = "example@example.com",
-            SchoolName = "ZSP 3 w Warszawie",
+            SchoolName = "ZSP 4 w Warszawie",
             SchoolUrl = "https://example.com",
             TimetableUrl = "https://example.com/timetable"
         };
@@ -25,9 +25,16 @@ public class GetSchoolFormsController
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
         var httpContent = new StringContent(JsonConvert.SerializeObject(formModel), Encoding.UTF8, "application/json");
-        await client.PostAsync("/form/SubmitSchoolForm", httpContent);
+        var formResponse = await client.PostAsync("/form/SubmitSchoolForm", httpContent);
 
-        using var response = await client.GetAsync($"/form/GetSchoolForms?page=1");
+        var refuseSchoolFormModel = new RefuseSchoolFormModel
+        {
+            FormId = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(
+                await formResponse.Content.ReadAsStringAsync())!.Id
+        };
+        
+        httpContent = new StringContent(JsonConvert.SerializeObject(refuseSchoolFormModel), Encoding.UTF8, "application/json");
+        using var response = await client.PutAsync("/form/RefuseSchoolForm", httpContent);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
