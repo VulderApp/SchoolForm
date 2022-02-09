@@ -12,7 +12,7 @@ namespace Vulder.School.Form.IntegrationTests.Controllers.Forms;
 public class GetSchoolFormControllerTest
 {
     [Fact]
-    public async Task POST_Responds_200_StatusCode()
+    public async Task GET_Responds_200_StatusCode()
     {
         var formModel = new SchoolFormModel
         {
