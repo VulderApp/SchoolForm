@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Vulder.School.Form.Core.Models;
-using Vulder.School.Form.Core.ProjectAggregate.Form.Dtos;
 
 namespace Vulder.School.Form.Api.Controllers.Form;
 
@@ -13,12 +12,10 @@ namespace Vulder.School.Form.Api.Controllers.Form;
 public class GetSchoolFormsController : ControllerBase
 {
     private readonly IMediator _mediator;
-    private readonly IMapper _mapper;
 
-    public GetSchoolFormsController(IMediator mediator, IMapper mapper)
+    public GetSchoolFormsController(IMediator mediator)
     {
         _mediator = mediator;
-        _mapper = mapper;
     }
 
     [HttpGet]
@@ -29,6 +26,6 @@ public class GetSchoolFormsController : ControllerBase
             Page = page
         });
 
-        return Ok(_mapper.Map<List<ShortFormDto>>(result));
+        return Ok(result);
     }
 }

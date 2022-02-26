@@ -1,3 +1,4 @@
+using AutoMapper;
 using MediatR;
 using Vulder.School.Form.Core.Models;
 using Vulder.School.Form.Core.ProjectAggregate.Form.Dtos;
@@ -8,10 +9,12 @@ namespace Vulder.School.Form.Application.Form.GetSchoolForms;
 public class GetSchoolFormsRequestHandler : IRequestHandler<SchoolFormCollectionModel, FormsDto>
 {
     private readonly IFormRepository _formRepository;
-
-    public GetSchoolFormsRequestHandler(IFormRepository formRepository)
+    private readonly IMapper _mapper;
+    
+    public GetSchoolFormsRequestHandler(IFormRepository formRepository, IMapper mapper)
     {
         _formRepository = formRepository;
+        _mapper = mapper;
     }
 
     public async Task<FormsDto> Handle(SchoolFormCollectionModel request, CancellationToken cancellationToken)
@@ -22,7 +25,7 @@ public class GetSchoolFormsRequestHandler : IRequestHandler<SchoolFormCollection
         return new FormsDto
         {
             Pages = pages,
-            Forms = forms
+            Forms = _mapper.Map<List<ShortFormDto>>(forms)
         };
     }
 }
