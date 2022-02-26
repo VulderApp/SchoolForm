@@ -11,7 +11,7 @@ namespace Vulder.School.Form.Api.Controllers.Form;
 public class GetSchoolFormController : ControllerBase
 {
     private readonly IMediator _mediator;
-    
+
     public GetSchoolFormController(IMediator mediator)
     {
         _mediator = mediator;

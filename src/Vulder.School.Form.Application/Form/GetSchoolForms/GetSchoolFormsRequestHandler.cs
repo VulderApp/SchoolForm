@@ -10,7 +10,7 @@ public class GetSchoolFormsRequestHandler : IRequestHandler<SchoolFormCollection
 {
     private readonly IFormRepository _formRepository;
     private readonly IMapper _mapper;
-    
+
     public GetSchoolFormsRequestHandler(IFormRepository formRepository, IMapper mapper)
     {
         _formRepository = formRepository;
@@ -19,7 +19,7 @@ public class GetSchoolFormsRequestHandler : IRequestHandler<SchoolFormCollection
 
     public async Task<FormsDto> Handle(SchoolFormCollectionModel request, CancellationToken cancellationToken)
     {
-        var pages = await _formRepository.GetSchoolFormDocumentsPagesCount();     
+        var pages = await _formRepository.GetSchoolFormDocumentsPagesCount();
         var forms = await _formRepository.GetFormList(request.Page);
 
         return new FormsDto

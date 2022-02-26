@@ -4,7 +4,8 @@ using Vulder.School.Form.Infrastructure.Database.Interfaces;
 
 namespace Vulder.School.Form.Application.Form.ApproveSchoolForm;
 
-public class ApproveSchoolFormRequestHandler : IRequestHandler<SchoolFormApproveRequestModel, Core.ProjectAggregate.Form.Form>
+public class
+    ApproveSchoolFormRequestHandler : IRequestHandler<SchoolFormApproveRequestModel, Core.ProjectAggregate.Form.Form>
 {
     private readonly IFormRepository _formRepository;
 
@@ -13,7 +14,8 @@ public class ApproveSchoolFormRequestHandler : IRequestHandler<SchoolFormApprove
         _formRepository = formRepository;
     }
 
-    public async Task<Core.ProjectAggregate.Form.Form> Handle(SchoolFormApproveRequestModel request, CancellationToken cancellationToken)
+    public async Task<Core.ProjectAggregate.Form.Form> Handle(SchoolFormApproveRequestModel request,
+        CancellationToken cancellationToken)
     {
         var form = await _formRepository.GetById(request.FormId);
 

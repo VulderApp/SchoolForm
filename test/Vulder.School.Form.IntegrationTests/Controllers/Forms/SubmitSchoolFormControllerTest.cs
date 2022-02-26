@@ -1,9 +1,8 @@
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Vulder.School.Form.Core.Models;
 using Vulder.School.Form.IntegrationTests.Fixtures;
 using Xunit;

@@ -28,7 +28,8 @@ public class GetSchoolFormControllerTest
         using var response = await client.PostAsync("/form/SubmitSchoolForm", httpContent);
 
         var formId =
-            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync())!.Id;
+            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync())!
+                .Id;
         using var getSchoolFormResponse = await client.GetAsync($"/form/GetSchoolForm?formId={formId}");
 
         Assert.Equal(HttpStatusCode.OK, getSchoolFormResponse.StatusCode);

@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace Vulder.School.Form.Core.Models;
 
 public class SchoolFormApproveModel

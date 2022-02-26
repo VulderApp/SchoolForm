@@ -9,8 +9,8 @@ namespace Vulder.School.Form.Api.Controllers.Form;
 [Route("/form/[controller]")]
 public class SubmitSchoolFormController : ControllerBase
 {
-    private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IMediator _mediator;
 
     public SubmitSchoolFormController(IMediator mediator, IMapper mapper)
     {
@@ -23,7 +23,7 @@ public class SubmitSchoolFormController : ControllerBase
     {
         var result = await _mediator.Send(
             _mapper.Map<Core.ProjectAggregate.Form.Form>(schoolFormModel)
-            );
+        );
 
         return Ok(result);
     }

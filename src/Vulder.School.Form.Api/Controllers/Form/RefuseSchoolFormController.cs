@@ -12,7 +12,7 @@ namespace Vulder.School.Form.Api.Controllers.Form;
 public class RefuseSchoolFormController : ControllerBase
 {
     private readonly IMediator _mediator;
-    
+
     public RefuseSchoolFormController(IMediator mediator)
     {
         _mediator = mediator;

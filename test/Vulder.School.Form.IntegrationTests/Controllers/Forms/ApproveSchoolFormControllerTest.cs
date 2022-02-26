@@ -28,7 +28,8 @@ public class ApproveSchoolFormControllerTest
         using var response = await client.PostAsync("/form/SubmitSchoolForm", httpContent);
 
         var formId =
-            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync())!.Id;
+            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync())!
+                .Id;
         var approveModel = new SchoolFormApproveModel
         {
             FormId = formId

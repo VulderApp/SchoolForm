@@ -32,8 +32,9 @@ public class RefuseSchoolFormControllerTest
             FormId = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(
                 await formResponse.Content.ReadAsStringAsync())!.Id
         };
-        
-        httpContent = new StringContent(JsonConvert.SerializeObject(refuseSchoolFormModel), Encoding.UTF8, "application/json");
+
+        httpContent = new StringContent(JsonConvert.SerializeObject(refuseSchoolFormModel), Encoding.UTF8,
+            "application/json");
         using var response = await client.PutAsync("/form/RefuseSchoolForm", httpContent);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
