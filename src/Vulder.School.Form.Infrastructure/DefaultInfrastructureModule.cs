@@ -1,9 +1,7 @@
-using System.Reflection;
 using Autofac;
 using AutoMapper;
 using Vulder.School.Form.Infrastructure.AutoMapper;
 using Vulder.School.Form.Infrastructure.Database;
-using Module = Autofac.Module;
 
 namespace Vulder.School.Form.Infrastructure;
 

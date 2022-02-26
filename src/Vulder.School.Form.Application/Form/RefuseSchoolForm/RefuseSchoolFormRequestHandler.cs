@@ -7,23 +7,23 @@ namespace Vulder.School.Form.Application.Form.RefuseSchoolForm;
 public class RefuseSchoolFormRequestHandler : IRequestHandler<SchoolFormRefuseRequestModel, Unit>
 {
     private readonly IFormRepository _formRepository;
-    
+
     public RefuseSchoolFormRequestHandler(IFormRepository formRepository)
     {
         _formRepository = formRepository;
     }
-    
+
     public async Task<Unit> Handle(SchoolFormRefuseRequestModel request, CancellationToken cancellationToken)
     {
         var form = await _formRepository.GetById(request.FormId);
 
         if (form.Refused) throw new Exception("This form was refused");
         if (form.Approved) throw new Exception("This form was approved");
-        
+
         form.SetRefuse(request.AdminId);
 
         await _formRepository.Update(form);
-        
+
         return Unit.Value;
     }
 }

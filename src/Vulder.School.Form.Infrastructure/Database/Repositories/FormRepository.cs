@@ -5,12 +5,14 @@ namespace Vulder.School.Form.Infrastructure.Database.Repositories;
 
 public class FormRepository : IFormRepository
 {
+    private const int DocumentLimit = 20;
+
     public FormRepository(MongoDbContext context)
     {
         Forms = context.Forms;
     }
 
-    private IMongoCollection<Core.ProjectAggregate.Form.Form>? Forms { get; set; }
+    private IMongoCollection<Core.ProjectAggregate.Form.Form>? Forms { get; }
 
     public async Task<Core.ProjectAggregate.Form.Form> Create(Core.ProjectAggregate.Form.Form form)
     {
@@ -24,11 +26,16 @@ public class FormRepository : IFormRepository
         return await Forms!.Find(x => x.Id == id).FirstAsync();
     }
 
+    public async Task<long> GetSchoolFormDocumentsPagesCount()
+    {
+        return await Forms!.CountDocumentsAsync(_ => true) / DocumentLimit + 1;
+    }
+
     public Task<List<Core.ProjectAggregate.Form.Form>> GetFormList(int page)
     {
         var forms = Forms!.AsQueryable()
             .OrderByDescending(x => x.CreatedAt)
-            .Skip((page - 1) * 20)
+            .Skip((page - 1) * DocumentLimit)
             .ToList();
 
         return Task.FromResult(forms);

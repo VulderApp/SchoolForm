@@ -27,7 +27,7 @@ public class GetSchoolFormsController
         var httpContent = new StringContent(JsonConvert.SerializeObject(formModel), Encoding.UTF8, "application/json");
         await client.PostAsync("/form/SubmitSchoolForm", httpContent);
 
-        using var response = await client.GetAsync($"/form/GetSchoolForms?page=1");
+        using var response = await client.GetAsync("/form/GetSchoolForms?page=1");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
