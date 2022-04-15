@@ -8,7 +8,7 @@ namespace Vulder.School.Form.Api.Controllers.Form;
 
 [Authorize]
 [ApiController]
-[Route("/form/[controller]")]
+[Route("/form/approve")]
 public class ApproveSchoolFormController : ControllerBase
 {
     private readonly IMediator _mediator;
