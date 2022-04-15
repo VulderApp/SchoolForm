@@ -6,7 +6,7 @@ using Vulder.School.Form.Core.Models;
 namespace Vulder.School.Form.Api.Controllers.Form;
 
 [ApiController]
-[Route("/form/[controller]")]
+[Route("/form/submit")]
 public class SubmitSchoolFormController : ControllerBase
 {
     private readonly IMapper _mapper;

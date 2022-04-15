@@ -29,7 +29,7 @@ public class SchoolFormControllersTest
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
         var httpContent = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-        var response = await client.PostAsync("/form/SubmitSchoolForm", httpContent);
+        var response = await client.PostAsync("/form/submit", httpContent);
 
         return response;
     }
@@ -64,7 +64,7 @@ public class SchoolFormControllersTest
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
 
-        using var response = await client.GetAsync($"/form/GetSchoolForm?formId={_schoolFormFixture.Form.Id}");
+        using var response = await client.GetAsync($"/form?formId={_schoolFormFixture.Form.Id}");
         var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -81,7 +81,7 @@ public class SchoolFormControllersTest
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
 
-        using var response = await client.GetAsync("/form/GetSchoolForms?page=1");
+        using var response = await client.GetAsync("/form/forms?page=1");
         var schoolForms = JsonConvert.DeserializeObject<FormsDto>(await response.Content.ReadAsStringAsync());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -102,7 +102,7 @@ public class SchoolFormControllersTest
         using var client = application.CreateClient();
 
         var httpContent = new StringContent(JsonConvert.SerializeObject(approveModel), Encoding.UTF8, "application/json");
-        using var response = await client.PostAsync("/form/ApproveSchoolForm", httpContent);
+        using var response = await client.PostAsync("/form/approve", httpContent);
         var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -134,7 +134,7 @@ public class SchoolFormControllersTest
 
         var httpContent = new StringContent(JsonConvert.SerializeObject(refuseSchoolFormModel), Encoding.UTF8,
             "application/json");
-        using var response = await client.PutAsync("/form/RefuseSchoolForm", httpContent);
+        using var response = await client.PutAsync("/form/refuse", httpContent);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
