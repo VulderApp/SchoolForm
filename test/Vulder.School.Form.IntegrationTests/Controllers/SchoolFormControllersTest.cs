@@ -36,7 +36,7 @@ public class SchoolFormControllersTest
 
     [Fact]
     [Priority(0)]
-    public async Task POST_Responds_200_StatusCode()
+    public async Task SubmitSchoolForm_POST_Responds_200_StatusCode()
     {
         var body = new SchoolFormModel
         {
@@ -102,9 +102,11 @@ public class SchoolFormControllersTest
         using var client = application.CreateClient();
 
         var httpContent = new StringContent(JsonConvert.SerializeObject(approveModel), Encoding.UTF8, "application/json");
-        using var approveFormResponse = await client.PostAsync("/form/ApproveSchoolForm", httpContent);
+        using var response = await client.PostAsync("/form/ApproveSchoolForm", httpContent);
+        var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
 
-        Assert.Equal(HttpStatusCode.OK, approveFormResponse.StatusCode);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.NotNull(schoolForm);
     }
 
     [Fact]
