@@ -19,7 +19,6 @@ public class
     {
         var form = await _formRepository.GetById(request.FormId);
 
-        form.Approved = true;
         form.ApproveAdminId = request.AdminId;
         form.SetApproveTime();
 
