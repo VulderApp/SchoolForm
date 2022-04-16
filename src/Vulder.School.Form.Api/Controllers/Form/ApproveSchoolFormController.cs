@@ -18,15 +18,15 @@ public class ApproveSchoolFormController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPut]
     public async Task<IActionResult> ApproveForm([FromBody] SchoolFormApproveModel approveModel)
     {
-        var result = await _mediator.Send(new SchoolFormApproveRequestModel
+        await _mediator.Send(new SchoolFormApproveRequestModel
         {
             FormId = approveModel.FormId,
             AdminId = Guid.Parse(User.FindFirst(ClaimTypes.PrimarySid)?.Value!)
         });
 
-        return Ok(result);
+        return Ok();
     }
 }

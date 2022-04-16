@@ -91,7 +91,7 @@ public class SchoolFormControllersTest
 
     [Fact]
     [Priority(3)]
-    public async Task ApproveSchoolForm_POST_Responds_200_StatusCode()
+    public async Task ApproveSchoolForm_PUT_Responds_200_StatusCode()
     {
         var approveModel = new SchoolFormApproveModel
         {
@@ -102,11 +102,9 @@ public class SchoolFormControllersTest
         using var client = application.CreateClient();
 
         var httpContent = new StringContent(JsonConvert.SerializeObject(approveModel), Encoding.UTF8, "application/json");
-        using var response = await client.PostAsync("/form/approve", httpContent);
-        var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
+        using var response = await client.PutAsync("/form/approve", httpContent);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.NotNull(schoolForm);
     }
 
     [Fact]
