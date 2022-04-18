@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Vulder.School.Form.Core.Models;
+using Vulder.School.Form.Core.ProjectAggregate;
 using Vulder.School.Form.Infrastructure.Database.Interfaces;
 
 namespace Vulder.School.Form.Application.Form.RefuseSchoolForm;
@@ -17,8 +18,8 @@ public class RefuseSchoolFormRequestHandler : IRequestHandler<SchoolFormRefuseRe
     {
         var form = await _formRepository.GetById(request.FormId);
 
-        if (form.Refused) throw new Exception("This form was refused");
-        if (form.Approved) throw new Exception("This form was approved");
+        if (form.Status.Equals(Status.Refused)) throw new Exception("This form was refused");
+        if (form.Status.Equals(Status.Approved)) throw new Exception("This form was approved");
 
         form.SetRefuse(request.AdminId);
 

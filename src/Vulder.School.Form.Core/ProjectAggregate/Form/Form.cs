@@ -17,9 +17,7 @@ public class Form : BaseEntity, IRequest<Form>
 
     [BsonRequired] public DateTime CreatedAt { get; set; }
 
-    [BsonRequired] public bool Approved { get; set; }
-
-    [BsonRequired] public bool Refused { get; set; }
+    [BsonRequired] public Status Status { get; set; } = Status.None;
 
     [BsonRequired]
     [BsonRepresentation(BsonType.String)]
@@ -49,6 +47,7 @@ public class Form : BaseEntity, IRequest<Form>
 
     public Form SetApproveTime()
     {
+        Status = Status.Approved;
         ApprovedAt = DateTime.UtcNow;
 
         return this;
@@ -56,7 +55,7 @@ public class Form : BaseEntity, IRequest<Form>
 
     public Form SetRefuse(Guid adminId)
     {
-        Refused = true;
+        Status = Status.Refused;
         RefusedAdminId = adminId;
         RefusedAt = DateTime.UtcNow;
 
