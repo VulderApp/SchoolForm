@@ -1,5 +1,6 @@
 # School form
 [![Test](https://github.com/VulderApp/SchoolForm/actions/workflows/test.yml/badge.svg)](https://github.com/VulderApp/SchoolForm/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/VulderApp/SchoolForm/branch/dev/graph/badge.svg?token=4WP3BI0J8M)](https://codecov.io/gh/VulderApp/SchoolForm)
 
 Microservice responsible for school form request management
 
