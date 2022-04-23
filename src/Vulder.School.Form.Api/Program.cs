@@ -1,9 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using NLog.Web;
 using Vulder.School.Form.Application;
 using Vulder.School.Form.Infrastructure;
 using Vulder.SharedKernel;
-using NLog.Web;
 using Vulder.SharedKernel.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);

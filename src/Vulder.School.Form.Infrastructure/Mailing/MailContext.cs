@@ -6,12 +6,12 @@ namespace Vulder.School.Form.Infrastructure.Mailing;
 
 public class MailContext
 {
-    public SendGridClient Client { get; }
-    public EmailAddress Address { get; }
-
     public MailContext()
     {
         Client = new SendGridClient(Constants.SendGridApiKey);
         Address = new EmailAddress(Constants.SendGridEmail, "Vulder Bot");
     }
+
+    public SendGridClient Client { get; }
+    public EmailAddress Address { get; }
 }

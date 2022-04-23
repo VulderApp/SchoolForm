@@ -6,10 +6,7 @@ public static class HtmlTemplateUtil
     {
         var content = await File.ReadAllTextAsync(templatePath);
 
-        foreach (var formater in formaters)
-        {
-            content = content.Replace("{" + formater.Key + "}", formater.Value);
-        }
+        foreach (var formater in formaters) content = content.Replace("{" + formater.Key + "}", formater.Value);
 
         return content;
     }

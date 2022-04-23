@@ -1,4 +1,3 @@
-using System.Net.Mail;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
@@ -6,14 +5,14 @@ namespace Vulder.School.Form.Infrastructure.Mailing;
 
 public class SendEmail : ISendEmail
 {
-    private SendGridClient Client { get; }
-    private EmailAddress Address { get; }
-
     public SendEmail(MailContext context)
     {
         Client = context.Client;
         Address = context.Address;
     }
+
+    private SendGridClient Client { get; }
+    private EmailAddress Address { get; }
 
     public async Task Send(string to, string subject, string body)
     {
@@ -21,7 +20,7 @@ public class SendEmail : ISendEmail
         {
             From = Address,
             Subject = subject,
-            HtmlContent = body,
+            HtmlContent = body
         };
         mail.AddTo(new EmailAddress(to));
 

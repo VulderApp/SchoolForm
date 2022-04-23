@@ -17,7 +17,7 @@ public class HtmlTemplateUtilTest
                 "text", "example"
             }
         };
-        var result  = await HtmlTemplateUtil.Format(formatters, "templates/test.html");
+        var result = await HtmlTemplateUtil.Format(formatters, "templates/test.html");
 
         Assert.Equal(ExpectedFormatedText, result);
     }

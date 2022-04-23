@@ -7,20 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="6.3.0" />
-        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
-        <PackageReference Include="AutoMapper" Version="11.0.1" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-        <PackageReference Include="MediatR" Version="10.0.1" />
-        <PackageReference Include="NLog" Version="4.7.15" />
-        <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-        <PackageReference Include="Vulder.SharedKernel" Version="0.1.10" />
+        <PackageReference Include="Autofac" Version="6.3.0"/>
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0"/>
+        <PackageReference Include="AutoMapper" Version="11.0.1"/>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
+        <PackageReference Include="MediatR" Version="10.0.1"/>
+        <PackageReference Include="NLog" Version="4.7.15"/>
+        <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0"/>
+        <PackageReference Include="Vulder.SharedKernel" Version="0.1.10"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Vulder.School.Form.Application\Vulder.School.Form.Application.csproj" />
-        <ProjectReference Include="..\Vulder.School.Form.Infrastructure\Vulder.School.Form.Infrastructure.csproj" />
+        <ProjectReference Include="..\Vulder.School.Form.Application\Vulder.School.Form.Application.csproj"/>
+        <ProjectReference Include="..\Vulder.School.Form.Infrastructure\Vulder.School.Form.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

@@ -1,5 +1,4 @@
 using MediatR;
-using Vulder.School.Form.Core.Models;
 using Vulder.School.Form.Core.Utils;
 using Vulder.School.Form.Infrastructure.Mailing;
 

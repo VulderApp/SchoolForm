@@ -8,8 +8,8 @@ namespace Vulder.School.Form.Application.Form.ApproveSchoolForm;
 
 public class ApproveSchoolFormNotificationHandler : INotificationHandler<SchoolFormApproveModel>
 {
-    private readonly ISendEmail _sendEmail;
     private readonly IFormRepository _formRepository;
+    private readonly ISendEmail _sendEmail;
 
     public ApproveSchoolFormNotificationHandler(ISendEmail sendEmail, IFormRepository formRepository)
     {

@@ -1,13 +1,13 @@
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Vulder.School.Form.Core.Models;
-using Vulder.School.Form.IntegrationTests.Fixtures;
 using Newtonsoft.Json;
+using Vulder.School.Form.Core.Models;
+using Vulder.School.Form.Core.ProjectAggregate.Form.Dtos;
+using Vulder.School.Form.IntegrationTests.Fixtures;
 using Xunit;
 using Xunit.Priority;
-using System.Net;
-using Vulder.School.Form.Core.ProjectAggregate.Form.Dtos;
 
 namespace Vulder.School.Form.IntegrationTests.Controllers;
 
@@ -47,7 +47,8 @@ public class SchoolFormControllersTest
         };
 
         var response = await SubmitSchoolForm(body);
-        var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
+        var schoolForm =
+            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
         _schoolFormFixture.Form = schoolForm;
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -65,7 +66,8 @@ public class SchoolFormControllersTest
         using var client = application.CreateClient();
 
         using var response = await client.GetAsync($"/form?formId={_schoolFormFixture.Form.Id}");
-        var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
+        var schoolForm =
+            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await response.Content.ReadAsStringAsync());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         Assert.Equal(_schoolFormFixture.Form.Id, schoolForm.Id);
@@ -101,7 +103,8 @@ public class SchoolFormControllersTest
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
 
-        var httpContent = new StringContent(JsonConvert.SerializeObject(approveModel), Encoding.UTF8, "application/json");
+        var httpContent =
+            new StringContent(JsonConvert.SerializeObject(approveModel), Encoding.UTF8, "application/json");
         using var response = await client.PutAsync("/form/approve", httpContent);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -120,14 +123,16 @@ public class SchoolFormControllersTest
         };
 
         var schoolFormResponse = await SubmitSchoolForm(body);
-        var schoolForm = JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await schoolFormResponse.Content.ReadAsStringAsync());
+        var schoolForm =
+            JsonConvert.DeserializeObject<Core.ProjectAggregate.Form.Form>(await schoolFormResponse.Content
+                .ReadAsStringAsync());
 
         await using var application = new WebAppFactoryFixture();
         using var client = application.CreateClient();
 
         var refuseSchoolFormModel = new RefuseSchoolFormModel
         {
-            FormId = schoolForm.Id,
+            FormId = schoolForm.Id
         };
 
         var httpContent = new StringContent(JsonConvert.SerializeObject(refuseSchoolFormModel), Encoding.UTF8,

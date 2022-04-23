@@ -8,8 +8,8 @@ namespace Vulder.School.Form.Application.Form.RefuseSchoolForm;
 
 public class RefuseSchoolFormNotificationHandler : INotificationHandler<RefuseSchoolFormModel>
 {
-    private readonly ISendEmail _sendEmail;
     private readonly IFormRepository _formRepository;
+    private readonly ISendEmail _sendEmail;
 
     public RefuseSchoolFormNotificationHandler(ISendEmail sendEmail, IFormRepository formRepository)
     {

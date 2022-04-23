@@ -1,5 +1,4 @@
 using Autofac;
-using Module = Autofac.Module;
 
 namespace Vulder.School.Form.Infrastructure.Mailing;
 
