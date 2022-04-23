@@ -2,6 +2,7 @@ using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Vulder.School.Form.Core;
 using Vulder.School.Form.Core.Models;
 
 namespace Vulder.School.Form.Api.Controllers.Form;
@@ -26,6 +27,9 @@ public class ApproveSchoolFormController : ControllerBase
             FormId = approveModel.FormId,
             AdminId = Guid.Parse(User.FindFirst(ClaimTypes.PrimarySid)?.Value!)
         });
+
+        if (Constants.UseSendGrid)
+            await _mediator.Publish(approveModel);
 
         return Ok();
     }

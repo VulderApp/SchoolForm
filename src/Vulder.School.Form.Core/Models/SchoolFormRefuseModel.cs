@@ -1,6 +1,8 @@
-﻿namespace Vulder.School.Form.Core.Models;
+﻿using MediatR;
 
-public class RefuseSchoolFormModel
+namespace Vulder.School.Form.Core.Models;
+
+public class RefuseSchoolFormModel : INotification
 {
     public Guid FormId { get; set; }
 }
