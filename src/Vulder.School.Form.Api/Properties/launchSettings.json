@@ -17,7 +17,10 @@
       "applicationUrl": "https://localhost:6012;http://localhost:6002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MONGODB_CONNECTION_STRING": "mongodb://localhost:27017/"
+        "MONGODB_CONNECTION_STRING": "mongodb://localhost:27017/",
+        "USE_SENDGRID": "false",
+        "SENDGRID_API_KEY": "",
+        "SENDGRID_EMAIL": ""
       }
     },
     "IIS Express": {

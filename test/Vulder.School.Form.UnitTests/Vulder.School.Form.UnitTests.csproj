@@ -27,4 +27,10 @@
         <ProjectReference Include="..\..\src\Vulder.School.Form.Core\Vulder.School.Form.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="templates\test.html">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

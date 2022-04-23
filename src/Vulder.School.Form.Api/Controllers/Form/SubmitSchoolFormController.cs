@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Vulder.School.Form.Core;
 using Vulder.School.Form.Core.Models;
 
 namespace Vulder.School.Form.Api.Controllers.Form;
@@ -24,6 +25,9 @@ public class SubmitSchoolFormController : ControllerBase
         var result = await _mediator.Send(
             _mapper.Map<Core.ProjectAggregate.Form.Form>(schoolFormModel)
         );
+
+        if (Constants.UseSendGrid)
+            await _mediator.Publish(result);
 
         return Ok(result);
     }

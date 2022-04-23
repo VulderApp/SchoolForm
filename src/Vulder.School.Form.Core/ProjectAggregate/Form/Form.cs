@@ -5,7 +5,7 @@ using Vulder.SharedKernel;
 
 namespace Vulder.School.Form.Core.ProjectAggregate.Form;
 
-public class Form : BaseEntity, IRequest<Form>
+public class Form : BaseEntity, IRequest<Form>, INotification
 {
     [BsonRequired] public string? RequesterEmail { get; set; }
 

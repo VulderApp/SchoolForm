@@ -1,5 +1,5 @@
 using MongoDB.Driver;
-using Vulder.School.Form.Core.Configuration;
+using Vulder.School.Form.Core;
 
 namespace Vulder.School.Form.Infrastructure.Database;
 

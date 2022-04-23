@@ -2,6 +2,7 @@ using Autofac;
 using AutoMapper;
 using Vulder.School.Form.Infrastructure.AutoMapper;
 using Vulder.School.Form.Infrastructure.Database;
+using Vulder.School.Form.Infrastructure.Mailing;
 
 namespace Vulder.School.Form.Infrastructure;
 
@@ -21,5 +22,6 @@ public class DefaultInfrastructureModule : Module
             .InstancePerLifetimeScope();
 
         builder.RegisterModule(new DatabaseModule());
+        builder.RegisterModule(new MailingModule());
     }
 }
