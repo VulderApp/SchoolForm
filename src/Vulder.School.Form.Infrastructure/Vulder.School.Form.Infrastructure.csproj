@@ -12,7 +12,7 @@
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
         <PackageReference Include="FluentValidation" Version="11.0.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.15.0"/>
+        <PackageReference Include="MongoDB.Driver" Version="2.15.1"/>
         <PackageReference Include="SendGrid" Version="9.27.0"/>
         <PackageReference Include="Vulder.SharedKernel" Version="0.1.13"/>
     </ItemGroup>
